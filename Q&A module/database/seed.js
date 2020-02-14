@@ -5,22 +5,63 @@ var questions = require('./questions.js'); // real data from web
 var answers = require('./answers.js'); // real data from web
 const faker = require('faker');
 
+var fs = require('fs');
+var jsonTest = {
+  number: 1,
+  qNickname: 'smarty',
+  question: "I can't find any other human goggles as good looking as this one, will this fit on my face?",
+  qDate: faker.date.between('2020-01-30', '2020-02-02'),
+  qEmail: faker.internet.email(),
+  qLocation: faker.address.city() + ", " + faker.address.state(),
+  newQ: false,
+  ansCount: 2,
+  answers: [
+    {
+      aNickname: faker.name.firstName(),
+      answer: "LOL no, but you're welcome to try.",
+      aDate: faker.date.between('2020-01-01', '2020-01-29'),
+      aEmail: faker.internet.email(),
+      aLocation: faker.address.city() + ", " + faker.address.state(),
+      yes: 80,
+      no: 0,
+      inappropriate: faker.random.arrayElement(["yes","no"]),
+      newAns: false
+    },
+    {
+      aNickname: faker.name.firstName(),
+      answer: "Yes, take a picture when you do and post it here, I'd like to see!",
+      aDate: faker.date.between('2019-11-01', '2019-12-30'),
+      aEmail: faker.internet.email(),
+      aLocation: faker.address.city() + ", " + faker.address.state(),
+      yes: 10,
+      no: 0,
+      inappropriate: faker.random.arrayElement(["yes","no"]),
+      newAns: false
+    }
+  ]
+};
+const objTest = JSON.parse(jsonTest);
+var dataTest = JSON.stringify(objTest);
+fs.writeFile("testing.json", dataTest);
+
+///-------------------------------------------------------------------------------------------------------
+
 // for each of the 100 products
-for (var i = 1; i < 100; i++) {
+for (var i = 0; i < 100; i++) {
   // set product ID for each and QA pairs
   let product = {
     productID: i,
-    QApairs: [] 
+    QApairs: []
   };
   // randomize the quantity of QA pairs for each product
-  let QApairsQty = faker.random.number({ min: 4, max: 10 });
+  let QApairsQty = faker.random.number({ min: 0, max: 3 });
   // randomly generate qa pairs until the desired quantity is reached
   for (var j = 0; j < QApairsQty; j++) {
     // random questions are generated below
     var qa = {
       number: j,
       qNickname: faker.name.firstName(),
-      question: faker.hacker.phrase() + ' ' + faker.lorem.sentences(faker.random.number({ min: 2, max: 6 })),
+      question: faker.hacker.phrase() + ' ' + faker.lorem.sentences(faker.random.number({ min: 1, max: 3 })),
       qDate: faker.date.between('2017-01-01', '2020-02-02'),
       qEmail: faker.internet.email(),
       qLocation: faker.address.city() + ", " + faker.address.state(),
@@ -35,7 +76,7 @@ for (var i = 1; i < 100; i++) {
     for (var k = 0; k < ansQty; k++) {
       qa.answers.push({
         aNickname: faker.name.firstName(),
-        answer: faker.hacker.phrase() + ' ' + faker.lorem.sentences(faker.random.number({ min: 2, max: 6 })),
+        answer: faker.hacker.phrase() + ' ' + faker.lorem.sentences(faker.random.number({ min: 1, max: 3 })),
         aDate: faker.date.between('2017-01-01', '2020-02-02'),
         aEmail: faker.internet.email(),
         aLocation: faker.address.city() + ", " + faker.address.state(),
@@ -62,6 +103,9 @@ for (var i = 1; i < 100; i++) {
     .catch(err => console.error(err));
 }
 
+
+
+///-------------------------------------------------------------------------------------------------------
 
 let firstProduct = {
   productID: 0,
@@ -262,11 +306,11 @@ let firstProduct = {
   ]
 }
 
-QApair.create(firstProduct)
-    .then(() => {
-      console.log('database seeded');
-      mongoose.connection.close();
-    })
-    .catch(err => console.error(err));
+// QApair.create(firstProduct)
+//     .then(() => {
+//       console.log('database seeded');
+//       mongoose.connection.close();
+//     })
+//     .catch(err => console.error(err));
 
 

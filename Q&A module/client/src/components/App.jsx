@@ -31,10 +31,21 @@ class App extends React.Component {
 
   getData(productID) {
     axios
-      .get(`http://localhost:8080/api/${productID}`)
+      // .get(`http://localhost:8080/api/${productID}`)
+      .get(`http://localhost:8080/api/1`)
       .then((result) => this.setState({ QApairs: result.data[0].QApairs }))
       .catch((err) => console.error(err));
   };
+
+
+
+
+
+
+
+
+
+
 
   showAskAQuestion() {
     this.setState({
@@ -94,7 +105,7 @@ class App extends React.Component {
               </div>
             </span>
           </div>
-          { this.state.QApairs.length && 
+          { this.state.QApairs.length &&
           <QAList QApairs={this.state.QApairs} answerSubmit={this.answerSubmit} currentSelection={this.currentSelection}/>
           }
         </div>

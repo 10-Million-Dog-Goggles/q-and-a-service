@@ -11,14 +11,14 @@ var QASchema = new mongoose.Schema({
     qLocation: { type: String },
     newQ: String,
     ansCount: Number,
-    answers: [ 
+    answers: [
       {
         aNickname: String,
         answer: String,
         aDate: Date,
         aEmail: String,
         aLocation: String,
-        yes: Number, 
+        yes: Number,
         no: Number,
         inappropriate: String,
         newAns: String
@@ -28,3 +28,6 @@ var QASchema = new mongoose.Schema({
 });
 
 module.exports = QASchema;
+
+
+// productID, QApairs.number, QApairs.qNickname, QApairs.question, QApairs.qDate, QApairs.qEmail, QApairs.qLocation, QApairs,newQ, QApairs.ansCount, QApairs.answers.aNickname, QApairs.answers.answer, QApairs.answers.aDate. QApairs.answers.aEmail, QApairs.answers.aLocation, QApairs.answers.yes, QApairs.answers.no, QApairs.answers.inappropriate, QApairs.answers.newAns
