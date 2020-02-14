@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./server/index.js",
     "build": "webpack -d -w",
-    "seed": "node database/seedTest.js"
+    "seed": "node database/seed.js",
+    "fakeData": "node database/seedTest.js"
   },
   "author": "Christine",
   "license": "ISC",

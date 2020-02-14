@@ -5,6 +5,8 @@ var questions = require('./questions.js'); // real data from web
 var answers = require('./answers.js'); // real data from web
 const faker = require('faker');
 
+
+/*
 var fs = require('fs');
 var jsonTest = {
   number: 1,
@@ -43,6 +45,22 @@ var jsonTest = {
 const objTest = JSON.parse(jsonTest);
 var dataTest = JSON.stringify(objTest);
 fs.writeFile("testing.json", dataTest);
+*/
+var sampleData = require('./sampleDataM.csv')
+
+const insertMockData = function() {
+  QApair.create(sampleData)
+  .then(() => {
+    console.log('seeded');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+};
+
+insertMockData()
+
+
 
 ///-------------------------------------------------------------------------------------------------------
 
@@ -70,7 +88,7 @@ for (var i = 0; i < 100; i++) {
       answers: []
     };
     // for each randomly generated question, the number of answers should be a random number from 1 to 5
-    let ansQty = faker.random.number({ min: 1, max: 3 });
+    let ansQty = faker.random.number({ min: 0, max: 3 });
     qa.ansCount = ansQty;
     // and each question should be paired with the desired number of answers
     for (var k = 0; k < ansQty; k++) {
@@ -106,7 +124,7 @@ for (var i = 0; i < 100; i++) {
 
 
 ///-------------------------------------------------------------------------------------------------------
-
+/*
 let firstProduct = {
   productID: 0,
   QApairs: [
@@ -305,7 +323,7 @@ let firstProduct = {
     }
   ]
 }
-
+*/
 // QApair.create(firstProduct)
 //     .then(() => {
 //       console.log('database seeded');
