@@ -8,6 +8,7 @@
     "start": "nodemon ./server/index.js",
     "build": "webpack -d -w",
     "seed": "node database/seed.js",
+    "seeding" : "mongoimport -d QAdata -c QApair --type csv --file ./sampleDataM.csv --headerline",
     "fakeData": "node database/seedTest.js"
   },
   "author": "Christine",

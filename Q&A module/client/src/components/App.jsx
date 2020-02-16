@@ -38,15 +38,6 @@ class App extends React.Component {
   };
 
 
-
-
-
-
-
-
-
-
-
   showAskAQuestion() {
     this.setState({
       showAskQ: true
