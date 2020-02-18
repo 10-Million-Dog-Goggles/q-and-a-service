@@ -9,7 +9,7 @@
     "build": "webpack -d -w",
     "seed": "node database/seed.js",
     "seeding" : "mongoimport -d QAdata -c QApair --type csv --file ./sampleDataM.csv --headerline",
-    "fakeData": "node database/seedTest.js"
+    "fakeData": "node database/newSeedJSON.js"
   },
   "author": "Christine",
   "license": "ISC",

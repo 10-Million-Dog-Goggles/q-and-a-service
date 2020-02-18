@@ -1,2 +1,9 @@
 node_modules
+
 .DS_Store
+
+
+# csv file
+sampleDataM.csv
+# json file
+sampleDataM.json

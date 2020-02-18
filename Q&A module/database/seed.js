@@ -7,19 +7,19 @@ const faker = require('faker');
 const fs = require('fs');
 
 
-// var sampleData = require('./example.json')
+var sampleData = require('./sampleDataM.json')
 
-// const insertMockData = function() {
-//   QApair.create(sampleData)
-//   .then(() => {
-//     console.log('seeded');
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
-// };
+const insertMockData = function() {
+  QApair.create(sampleData)
+  .then(() => {
+    console.log('seeded');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+};
 
-// insertMockData()
+insertMockData()
 
 ///-------------------------------------------------------------------------------------------------------
 /*
