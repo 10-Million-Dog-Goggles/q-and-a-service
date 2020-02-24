@@ -7,21 +7,47 @@ const faker = require('faker');
 const fs = require('fs');
 
 
-var sampleData = require('./sampleDataM.json')
 
-const insertMockData = function() {
-  QApair.create(sampleData)
-  .then(() => {
-    console.log('seeded');
+// var sampleData = require('./sample2.json')
+
+// const insertMockData = function() {
+//   QApair.create(sampleData)
+//   .then(() => {
+//     console.log('seeded');
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
+// };
+
+// insertMockData()
+
+///
+var counter = 0;
+var sampleData = require('./sample100k1.json')
+
+const insertMockData = function(da) {
+  QApair.create(da)
+  .then(() =>{
+    counter ++
+    if(counter % 5000 === 0){
+      console.log(counter)
+    }
   })
   .catch((err) => {
     console.error(err);
   });
 };
 
-insertMockData()
+sampleData.map(dataOne=>{
+  insertMockData(dataOne)
+});
+//-------------------------------------------------------------------------------------------------------
 
-///-------------------------------------------------------------------------------------------------------
+
+function dataPopulate()
+
+
 /*
 // for each of the 100 products
 for (var i = 0; i < 100; i++) {
