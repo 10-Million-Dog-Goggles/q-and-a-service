@@ -1,10 +1,8 @@
-var client = require('../PGdatabase/index.js')
+var pgModel = require('../PGdatabase/pgModel.js')
 
-var controllers = {
+var pgControllers = {
   get: (req, res) => {
-    client.query(`select * from answers limit 10 offset 900000`)
-    // client.query(`select * from answers limit 10 offset 900000`)
-    // dbHelpers.get(req.params.productID)
+    pgModel.get(req.params.productID)
       .then(data => {
         res.status(200).send(data.rows)
       })
@@ -14,4 +12,4 @@ var controllers = {
   },
 };
 
-module.exports = controllers;
+module.exports = pgControllers;

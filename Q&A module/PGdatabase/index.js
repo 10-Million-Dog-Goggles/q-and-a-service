@@ -7,7 +7,7 @@
 // close connection
 
 const {Client} = require('pg')
-const sampleData = require('./dataJSON.json')
+// const sampleData = require('./dataJSON.json')
 
   const client = new Client ({
     user: "postgres",
@@ -64,9 +64,13 @@ client.connect()
   // .then(()=> client.query("SELECT * FROM answers"))
   // .then(result => console.table(result.rows))
 
-  .then(()=> client.query("select * from answers limit 10 offset 9000000;"))
-  // ERROR
+  // .then(()=> client.query("select * from answers limit 10 offset 9000000;"))
+
+  // ERROR CATCH
   .catch(err => console.log(err))
+
+  // CLOSE client
+  //.finally(()=> client.end())
 
 //test query
   // limit and offset
@@ -81,3 +85,5 @@ client.connect()
 // query design
   // var columns = `a.productID, a.question, b.answer`
   // `SELECT ${columns} FROM questions a INNER JOIN answers b ON a.QApair_ID = b.QApair_ID limit 10 OFFSET 90000;`
+
+module.exports = client;

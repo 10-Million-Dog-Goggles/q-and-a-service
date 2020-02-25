@@ -5,8 +5,8 @@ const controllers = require('./controllers.js');
 
 router
   .route('/sort')
-  .post(controllers.sort)  
-  
+  .post(controllers.sort)
+
 router
   .route('/:productID')
   .get(controllers.get)
