@@ -1,0 +1,34 @@
+
+config:
+  target: 'http://localhost:8080'
+  phases:
+    - duration: 60
+      arrivalRate: 100
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+scenarios:
+  - flow:
+    - get:
+        url: "/api/9999999"
+
+
+
+# config:
+#   target: 'http://localhost:8080'
+#   phases:
+#     - duration: 60
+#       arrivalRate: 10
+#   defaults:
+#     headers:
+#       x-my-service-auth: '987401838271002188298567'
+#     payload:
+#       path: "Qdata.csv"
+#       fields:
+#         - "productID"
+#   scenarios:
+#     - flow:
+#         - post:
+#             url: "/api"
+#             csv:
+#               productID: "{{ productID }}"
