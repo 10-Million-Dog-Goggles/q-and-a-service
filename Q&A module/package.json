@@ -11,8 +11,7 @@
     "seedTest": "node database/seed2.js",
     "seeding": "mongoimport -d QAdata -c QApair --type csv --file ./sampleDataM2.json --headerline",
     "fakeData": "node database/newSeedJSON.js",
-    "pgData": "node PGdatabase/index.js",
-    "pgSeed": "node PGdatabase/pgSeed.js"
+    "pgData": "node PGdatabase/index.js"
   },
   "author": "Christine",
   "license": "ISC",

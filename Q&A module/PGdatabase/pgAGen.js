@@ -8,7 +8,7 @@ var columns = `Answer_ID, qNickname, answer, qDate, qEmail, qLocation, yes, no, 
 writeUsers.write(columns, 'utf8');
 
 function writeTenMillionUsers(writer, encoding, callback) {
-  let i = 10;
+  let i = 10000000;
   let AnswerID = 1;
   let QApairID = 1;
   function write() {
