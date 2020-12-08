@@ -28,7 +28,7 @@
     "cors": "^2.8.5",
     "express": "^4.15.0",
     "faker": "^4.1.0",
-    "fast-csv": "^4.0.2",
+    "fast-csv": "^4.3.6",
     "fs": "0.0.1-security",
     "grunt": "^1.0.4",
     "grunt-run": "^0.8.1",
